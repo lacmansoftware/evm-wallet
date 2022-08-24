@@ -18,7 +18,7 @@ const SBannerWrapper = styled.div`
 const SBanner = styled.div`
   width: 45px;
   height: 45px;
-  background: url(${logo}) no-repeat;
+  background: no-repeat;
   background-size: cover;
   background-position: center;
 `;
@@ -26,7 +26,7 @@ const SBanner = styled.div`
 const Banner = () => (
   <SBannerWrapper>
     <SBanner />
-    <span>{`Web3Modal`}</span>
+    <span>{`Simple Connect`}</span>
   </SBannerWrapper>
 );
 
