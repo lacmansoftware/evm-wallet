@@ -202,7 +202,7 @@ class App extends React.Component<any, any> {
   public getNetwork = () => getChainData(this.state.chainId).network;
 
   public getProviderOptions = () => {
-    const infuraId = process.env.REACT_APP_INFURA_ID;
+    const infuraId = process.env.REACT_APP_INFURA_ID || "410bf0693a5243e0ab0e274ebfe11398";
     const providerOptions = {
       "custom-bitkeep-wallet": {
         display: {
