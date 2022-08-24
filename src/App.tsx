@@ -10,6 +10,7 @@ import {
 } from "./utils/connector";
 import Layout from "./components/Layout";
 import { Props } from "framer-motion/types/types";
+// import ConnectButton from "./components/ConnectButton";
 
 const ConnectButton = ({ onClick, children }: Props) => {
   return (
@@ -83,11 +84,14 @@ function App() {
         Binance Wallet
       </ConnectButton>
 
-      <ConnectButton onClick={deactivate}>Disconnect</ConnectButton>
-
       <div>Connection Status: {active}</div>
       <div>Account: {account}</div>
       <div>Network ID: {chainId}</div>
+      {account ? (
+        <ConnectButton onClick={deactivate}>Disconnect</ConnectButton>
+      ) : (
+        <></>
+      )}
     </Layout>
   );
 
