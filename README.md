@@ -1,1 +1,3 @@
-# evm-wallet
+# example
+
+Example React App
