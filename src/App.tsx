@@ -526,42 +526,10 @@ class App extends React.Component<any, any> {
                 </SContainer>
               </Column>
             ) : !!assets && !!assets.length ? (
-              <SBalances>
-                <h3>Actions</h3>
-                <Column center>
-                  <STestButtonContainer>
-                    <STestButton left onClick={this.testSendTransaction}>
-                      {ETH_SEND_TRANSACTION}
-                    </STestButton>
-
-                    <STestButton left onClick={this.testSignMessage}>
-                      {ETH_SIGN}
-                    </STestButton>
-
-                    <STestButton left onClick={this.testSignPersonalMessage}>
-                      {PERSONAL_SIGN}
-                    </STestButton>
-                    <STestButton
-                      left
-                      onClick={() => this.testContractCall(DAI_BALANCE_OF)}
-                    >
-                      {DAI_BALANCE_OF}
-                    </STestButton>
-
-                    <STestButton
-                      left
-                      onClick={() => this.testContractCall(DAI_TRANSFER)}
-                    >
-                      {DAI_TRANSFER}
-                    </STestButton>
-                  </STestButtonContainer>
-                </Column>
-                <h3>Balances</h3>
-                <AccountAssets chainId={chainId} assets={assets} />{" "}
-              </SBalances>
+              <h3>Wallet Connected Successfully</h3>
             ) : (
               <SLanding center>
-                <h3>{`Test Web3Modal`}</h3>
+                <h3>{`Web3 Wallet Simple Connect`}</h3>
                 <ConnectButton onClick={this.onConnect} />
               </SLanding>
             )}
