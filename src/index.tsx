@@ -1,28 +1,21 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { createGlobalStyle } from "styled-components";
-
+import React from "react";
+import ReactDOM from "react-dom";
 import App from "./App";
-import { globalStyle } from "./styles";
-const GlobalStyle = createGlobalStyle`
-  ${globalStyle}
-`;
+import { DAppProvider } from "@usedapp/core";
+import { Web3ReactProvider } from "@web3-react/core";
+import { Web3Provider } from "@ethersproject/providers";
 
-// @ts-ignore
-declare global {
-  // tslint:disable-next-line
-  interface Window {
-    web3: any;
-    ethereum: any;
-    Web3Modal: any;
-    [name: string]: any;
-  }
+function getLibrary(provider: any) {
+  return new Web3Provider(provider);
 }
 
 ReactDOM.render(
-  <>
-    <GlobalStyle />
-    <App />
-  </>,
+  <React.StrictMode>
+    <DAppProvider config={{}}>
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <App />
+      </Web3ReactProvider>
+    </DAppProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );

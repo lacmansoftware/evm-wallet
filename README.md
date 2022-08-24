@@ -1,3 +1,1 @@
-# example
-
-Example React App
+# web3-wallet-test-2

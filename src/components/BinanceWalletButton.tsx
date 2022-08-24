@@ -1,19 +1,19 @@
+import { Web3ReactProvider, useWeb3React } from "@web3-react/core";
 import { Button, Box, Text } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
+import { BinanceWallet, CoinbaseWallet } from "../utils/connector";
 
 type Props = {
   handleOpenModal: any;
 };
 
-export default function ConnectButton({ handleOpenModal }: Props) {
-  const { activateBrowserWallet, account } = useEthers();
-  const etherBalance = useEtherBalance(account);
+export default function BinanceWalletButton() {
+  const { active, activate, library, chainId, account } = useWeb3React();
 
-  function handleConnectWallet() {
-    activateBrowserWallet();
-  }
+  console.log(active, activate, library, chainId, account);
+  
 
   return account ? (
     <Box
@@ -24,13 +24,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
       py="0"
       my="2"
     >
-      <Box px="3">
-        <Text color="white" fontSize="md">
-          {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
-        </Text>
-      </Box>
       <Button
-        onClick={handleOpenModal}
         bg="gray.800"
         border="1px solid transparent"
         _hover={{
@@ -56,7 +50,9 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     </Box>
   ) : (
     <Button
-      onClick={handleConnectWallet}
+      onClick={() => {
+        activate(BinanceWallet);
+      }}
       bg="blue.800"
       color="blue.300"
       fontSize="lg"
@@ -73,7 +69,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
       }}
       my="2"
     >
-      Connect to Metamask
+      Connect to BinanceWallet
     </Button>
   );
 }
