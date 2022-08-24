@@ -11,14 +11,12 @@ import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 // @ts-ignore
 import { Web3Auth } from "@web3auth/web3auth";
 
-import Button from "./components/Button";
 import Column from "./components/Column";
 import Wrapper from "./components/Wrapper";
 import Modal from "./components/Modal";
 import Header from "./components/Header";
 import Loader from "./components/Loader";
 import ModalResult from "./components/ModalResult";
-import AccountAssets from "./components/AccountAssets";
 import ConnectButton from "./components/ConnectButton";
 
 import { apiGetAccountAssets } from "./helpers/api";
@@ -30,7 +28,6 @@ import {
   getChainData,
 } from "./helpers/utilities";
 import { IAssetData } from "./helpers/types";
-import { fonts } from "./styles";
 import {
   ETH_SEND_TRANSACTION,
   ETH_SIGN,
@@ -81,31 +78,6 @@ const SModalTitle = styled.div`
 
 const SModalParagraph = styled.p`
   margin-top: 30px;
-`;
-
-// @ts-ignore
-const SBalances = styled(SLanding)`
-  height: 100%;
-  & h3 {
-    padding-top: 30px;
-  }
-`;
-
-const STestButtonContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-
-const STestButton = styled(Button)`
-  border-radius: 8px;
-  font-size: ${fonts.size.medium};
-  height: 44px;
-  width: 100%;
-  max-width: 175px;
-  margin: 12px;
 `;
 
 interface IAppState {
@@ -263,7 +235,7 @@ class App extends React.Component<any, any> {
       coinbasewallet: {
         package: CoinbaseWalletSDK,
         options: {
-          appName: "Web3Modal Example App",
+          appName: "Wallet Test",
           infuraId,
         },
       },
@@ -525,11 +497,11 @@ class App extends React.Component<any, any> {
                   <Loader />
                 </SContainer>
               </Column>
-            ) : !!assets && !!assets.length ? (
+            ) : !!address && !!address.length ? (
               <h3>Wallet Connected Successfully</h3>
             ) : (
               <SLanding center>
-                <h3>{`Web3 Wallet Simple Connect`}</h3>
+                <h3>{`Web3 Wallet Test`}</h3>
                 <ConnectButton onClick={this.onConnect} />
               </SLanding>
             )}
