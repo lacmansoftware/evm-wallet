@@ -3,7 +3,7 @@ import { useWeb3React } from "@web3-react/core";
 import "@fontsource/inter";
 import {
   BinanceWallet,
-  BitKeepConnect,
+  BitKeep,
   CoinbaseWallet,
   Injected,
   WalletConnect,
@@ -70,7 +70,7 @@ function App() {
       </ConnectButton>
       <ConnectButton
         onClick={() => {
-          activate(BitKeepConnect);
+          activate(BitKeep);
         }}
       >
         BitKeep
