@@ -234,7 +234,7 @@ class App extends React.Component<any, any> {
     const providerOptions = {
       "custom-bitkeep-wallet": {
         display: {
-          logo: "bitkeep.png",
+          logo: "https://www.yadawallets.com/wp-content/uploads/2020/12/Bitkeep-wallet-logo.png",
           name: "Bitkeep Wallet",
           description: "Connect to your Bitkeep Wallet",
         },
